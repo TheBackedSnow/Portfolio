@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    background-color: rgb(54, 52, 52);
+    width: auto;
+    line-height: 100px;
+    box-sizing: border-box;
+}
+.tytul{
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-family: monospace;
+}
+.logo{
+    width: 120px;
+    height: 100px;
+    position: absolute;
+}
+
+.white{
+    width: 100%;
+    height: 10px;
+    background-color: white;
+}
+.red{
+    width: 100%;
+    height: 10px;
+    background-color: red;
+}
+nav{
+    background-color: white;
+    height: 65px;
+    border-bottom: solid grey 1px;
+}
+.menu{
+    float: left;
+    list-style-type: none;
+    margin-left: 55px;
+    display: flex;
+    position: relative;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+    font-family: monospace;
+}
+li a{
+    background-color: white;
+    border: hidden;
+    display: block;
+    width: 300px;
+    line-height: 65px;
+    float: left;
+    text-align: center;
+}
+ul li a:hover{
+    color: red;
+    font-size: 35px;
+    border: dotted red 2px;
+}
+.submenu{
+    list-style-type: none;
+}
+.opcja li{
+    display: none;
+}
+.opcja:hover li{
+    display: block;
+}
+.pust{
+    height: 150px;
+}
+h2{
+    font-size: 50px;
+    text-align: center;
+    color: rgb(141, 3, 3);
+    font-family: monospace;
+}
+article{
+    font-size: 25px;
+    color: gray;
+}
+.Tekst{
+    margin: 20px;
+}
+footer{
+    height: 40px;
+    background-color: rgb(82, 78, 78);
+}
+.tank{
+    height: 200px;
+    margin-left: 500px;
+}
+.top{
+    width: 240px;
+    height: 60px;
+    margin-left: 80px;
+    background-color: darkolivegreen;
+    position: relative;
+    border: hidden;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 40%;
+    border-bottom-left-radius: 30%;
+    border-bottom-right-radius: 10%;
+}
+.pipe{
+    width: 300px;
+    height: 20px;
+    background-color: darkolivegreen;
+    position: absolute;
+    top: -20%;
+    left: 90%;
+    transform: rotate(-15deg);
+}
+.pipe2{
+    width: 60px;
+    height: 30px;
+    background-color: darkslategrey;
+    position: absolute;
+    border: hidden;
+    border-bottom-left-radius: 40%;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 15%;
+    top: 20%;
+    left: 90%;
+    transform: rotate(-15deg);
+}
+.middle{
+    width: 400px;
+    height: 80px;
+    background-color: darkolivegreen;
+    border: solid black 1px;
+    border-top-left-radius: 20%;
+    border-top-right-radius: 30%;
+    border-bottom-right-radius: 30%;
+}
+.bottom{
+    display: flex;
+}
+.wheel{
+    width: 40px;
+    height: 40px;
+    background-color: black;
+    border: 5px dashed gray;
+    border-radius: 50%;
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+.road{
+    height: 50px;
+    background-color: gray;
+    position: relative;
+}
+@keyframes rotate{
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@media only screen and (max-width:1750px){
+    .tank, .road{
+        display: none;
+    }
+    li a{
+        width: 70px;
+        font-size: 8px;
+        height: 50px;
+        background-color: grey;
+        border:  solid darkgrey 1px;
+    }
+    ul li a:hover{
+        font-size: 10px;
+        font-weight: bold;
+        color: red;
+        left: 140px;
+    }
+    .tytul{
+        font-size: 25px;
+        margin-left: 120px;
+    }
+    h2{
+        font-size: 20px;
+    }
+    .Tekst{
+        font-size: 15px;
+    }
+    nav{
+        position: relative;
+        border: none;
+    }
+    .menu{
+        margin: 0;
+    }
+    .pust{
+        height: 50px;
+    }
+}
