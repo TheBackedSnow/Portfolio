@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Drag and Drop z jQuery</title>
+  <link rel="stylesheet" href="kl.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="omnie.html">O mnie</a>
+    <a href="kontakt.html">Kontakt</a>
+</div>
+
+<section>
+<div id="bloki" style="margin-top: 50px;">
+  <div id="blok-1" class="blok" data-numer="1">1</div>
+  <div id="blok-2" class="blok" data-numer="2">2</div>
+  <div id="blok-3" class="blok" data-numer="3">3</div>
+  <div id="blok-4" class="blok" data-numer="4">4</div>
+</div>
+
+<div id="kwadraty">
+  <div id="kwadrat-1" class="kwadrat" data-numer="1">1</div>
+  <div id="kwadrat-2" class="kwadrat" data-numer="2">2</div>
+  <div id="kwadrat-3" class="kwadrat" data-numer="3">3</div>
+  <div id="kwadrat-4" class="kwadrat" data-numer="4">4</div>
+</div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    let dragging = null;
+
+    $(".kwadrat").on("mousedown", function(e) {
+      dragging = $(this);
+      dragging.addClass("dragging");
+    });
+
+    $(document).on("mousemove", function(e) {
+      if (dragging) {
+        dragging.css({
+          position: "absolute",
+          left: e.pageX - dragging.width() / 2,
+          top: e.pageY - dragging.height() / 2
+        });
+      }
+    });
+
+    $(document).on("mouseup", function(e) {
+      if (dragging) {
+        $(".blok").each(function() {
+          const blok = $(this);
+          const offset = blok.offset();
+          const width = blok.width();
+          const height = blok.height();
+
+          if (e.pageX > offset.left && e.pageX < offset.left + width &&
+              e.pageY > offset.top && e.pageY < offset.top + height &&
+              blok.data("numer") === dragging.data("numer")) {
+            blok.addClass("dopasowany").text(dragging.text());
+            dragging.remove();
+          }
+        });
+        dragging.css({position: "relative", left: "", top: ""}).removeClass("dragging");
+        dragging = null;
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
